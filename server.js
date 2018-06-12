@@ -97,6 +97,7 @@ app.put('/groups/:id',(req, res) => {
     let data = req.body;
     groups[params.id]['group'] = data.Group;
     groups[params.id]['integrantes'] = data.Integrantes;
+	groups[params.id]['director'] = data.Director;
 	groups[params.id]['email'] = data.Email;
     groups[params.id]['phone'] = data.Phone;
     res.send("Group update")
