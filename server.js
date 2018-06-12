@@ -21,7 +21,8 @@ let contacts = [
     {id: 1, name: 'Sara Gonzalez', phone: '2222222222', email: 'bbbbb@hotmail.com'},
     {id: 2, name: 'Dario Rodriguez', phone: '3333333333', email: 'ccccc@gmail.com'},
     {id: 3, name: 'Erika Narvaez', phone: '4444444444', email: 'ddddd@hotmail.com'},
-    {id: 4, name: 'Juan Maya', phone: '5555555555', email: 'eeeee@gmail.com'}
+    {id: 4, name: 'Juan Maya', phone: '5555555555', email: 'eeeee@gmail.com'},
+	{id: 5, name: 'Felipe Benavides', phone: '666666666', email: 'pipe@gmail.com'}
 ];
 
 // ***************************************************************
