@@ -13,12 +13,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // ***************************************************************
 
 let users = [
-    {id: 0, username: 'pipe', password: '666', name: 'Luis Felipe Benavides Narvaez', email: 'felipe@hotmail.com'}
+    {id: 0, username: 'pipe', password: '666', name: 'Luis Felipe Benavides Narvaez', email: 'felipe@hotmail.com'},
+	{id: 1, username: 'john', password: '999', name: 'John Alejandro Gomez Hernandes', email: 'jOHN@hotmail.com'}
 ];
 
-let contacts = [
-    {id: 0, name: 'Carlos Mosquera', phone: '1111111111', email: 'aaaaa@gmail.com'},
-    {id: 1, name: 'Sara Gonzalez', phone: '2222222222', email: 'bbbbb@hotmail.com'}
+let groups = [
+    {id: 0, group: 'La guanga', integrantes: '200', director: 'Jairo', email: 'jairo@hotmail.com', phone: '3156458578'},
+    {id: 1, group: 'Raices', integrantes: '180', director: 'Flavio Criollo', email: 'flavio@hotmail.com', phone: '318789456'}
 ];
 
 // ***************************************************************
@@ -73,47 +74,51 @@ app.post('/createUser', (req, res) => {
     res.send(usersTmp)
 })
 
-// Listar todos los contactos
-app.get('/contacts', (req, res) => {
+// Listar todos los grupos
+app.get('/groups', (req, res) => {
     let pos = 0;
-    contacts.forEach(function(entry) {
+    groups.forEach(function(entry) {
         entry.id = pos;
         pos++;
     });
-    res.send(contacts)
+    res.send(groups)
 })
 
-// Eliminar un contacto
-app.delete('/contacts/:id',(req, res) => {
+// Eliminar un grupo
+app.delete('/groups/:id',(req, res) => {
     let params = req.params;
-    contacts.splice(params.id, 1);
-    res.send('Contact delete')
+    group.splice(params.id, 1);
+    res.send('Group delete')
 })
 
-// Actualizar un contacto
-app.put('/contacts/:id',(req, res) => {
+// Actualizar un grupo
+app.put('/groups/:id',(req, res) => {
     let params = req.params;
     let data = req.body;
-    contacts[params.id]['name'] = data.Name;
-    contacts[params.id]['phone'] = data.Phone;
-    contacts[params.id]['email'] = data.Email;
-    res.send("Contact update")
+    groups[params.id]['group'] = data.Group;
+    groups[params.id]['integrantes'] = data.Integrantes;
+	groups[params.id]['email'] = data.Email;
+    groups[params.id]['phone'] = data.Phone;
+    res.send("Group update")
 })
 
-// Crear contactos
-app.post('/contacts', (req, res) => {
+// Crear grupos
+app.post('/groups', (req, res) => {
     let data = req.body;
-    let consecutive = contacts.length;
-    let contactTmp = [{
+    let consecutive = groups.length;
+    let gruopTmp = [{
         id: consecutive,
-        name: data.Name,
+        group: data.Group,
+		integrantes: data.Integrantes,
+		director: data.Director,
+		email: data.Email,
         phone: data.Phone,
-        email: data.Email,
+        
         
     }];
-    contacts.push(contactTmp[0])
+    groups.push(groupTmp[0])
 
-    res.send("Contact create")
+    res.send("Gruop create")
 })
 
 // *************************************************************
